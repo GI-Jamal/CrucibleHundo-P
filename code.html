@@ -119,9 +119,23 @@ function getValue() {
   let startNumber = parseInt(startValue); // startNumber = 0
   let endNumber = parseInt(endValue);
 
-  let numbers = generateNumbers(startNumber, endNumber);
+  if (Number.isInteger(startNumber) || Number.isInteger(endNumber))
+  {
+    Swal.fire(
+      {
+        icon: 'error',
+        title: 'Oops!',
+        text: 'Please enter valid numbers for the start and end values'
+      }
+    );
+  } 
+  
+  else
+  {
+    let numbers = generateNumbers(startNumber, endNumber);
 
-  displayNumbers(numbers);
+    displayNumbers(numbers);
+  }
 }
 
 // generate the range of numbers to display
@@ -164,41 +178,54 @@ function displayNumbers(theNumbers) {
         </div>
         <div class="col-lg-4 col-12">
           <p>The code is structured in three functions</p>
-          <h5>getValue()</h5>
+          <h5>getValue():</h5>
           <p>
             The getValue function retrieves the values from the users input and
             stores them in two variables named startValue and endValue for the
-            starting number and ending number respectively. It then parses the
-            input from text into numeric input and stores those numbers in
-            two new variables before calling the generateNumbers function and
-            passing it those new numeric variables. The results from the
-            generateNumbers function is stored in a variable called numbers.
-            The displayNumbers function is then called and the variable
-            numbers is passed into it.
+            starting number and ending number respectively.
           </p>
-          <hr/>
-          <h5>generateNumbers(start, end)</h5>
+          <p>
+            It then parses the input from text into numeric input and stores
+            those numbers in two new variables before calling the
+            generateNumbers function and passing it those new numeric variables.
+          </p>
+          <p>
+            The results from the generateNumbers function is stored in a
+            variable called numbers.The displayNumbers function is then called
+            and the variable numbers is passed into it.
+          </p>
+          <hr />
+          <h5>generateNumbers(start, end):</h5>
           <p>
             The generateNumbers function takes two parameters, a start and an
             end value, and creates an array of numbers from the first number to
-            the second number, inclusive. It does this by using a for loop to
-            iterate through each number to add it to the array. It then returns
-            this filled array to the caller.
+            the second number, inclusive.
           </p>
-          <hr/>
-          <h5>displayNumbers(theNumbers)</h5>
+          <p>
+            It does this by using a for loop to iterate through each number to
+            add it to the array. It then returns this filled array to the
+            caller.
+          </p>
+          <hr />
+          <h5>displayNumbers(theNumbers):</h5>
           <p>
             The displayNumbers function take a single parameter of an array of
             numbers and displays the numbers in a table with the even numbers
             displayed in bold and red. It does this by manipulating the
             innerHTML property of the document element that has an Id of
-            results. In this case it is a tbody tag. The function creates a
-            variable to store the HTML string for the numbers, and then iterates
-            through the array of numbers, determining if a number is even using
-            the modulus operator, then adds string of HTML text to the results
+            results.
+          </p>
+          <p>
+            In this case it is a tbody tag. The function creates a variable to
+            store the HTML string for the numbers, and then iterates through the
+            array of numbers, determining if a number is even by using the
+            modulus operator, then adds string of HTML text to the results
             variable, with even numbers having a CSS class of evenNumbers added
-            to them. This results variable is then assigned to the innerHTML
-            property of the tbody tag display the numbers in a tabular format.
+            to them.
+          </p>
+          <p>
+            This results variable is then assigned to the innerHTML property of
+            the tbody tag display the numbers in a tabular format.
           </p>
         </div>
       </div>

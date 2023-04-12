@@ -7,9 +7,24 @@ function getValue() {
   let startNumber = parseInt(startValue); // startNumber = 0
   let endNumber = parseInt(endValue);
 
-  let numbers = generateNumbers(startNumber, endNumber);
+  if (Number.isInteger(startNumber) || Number.isInteger(endNumber))
+  {
+    Swal.fire(
+      {
+        icon: 'error',
+        title: 'Oops!',
+        text: 'Please enter valid numbers for the start and end values',
+        backdrop: 'false'
+      }
+    );
+  } 
+  
+  else
+  {
+    let numbers = generateNumbers(startNumber, endNumber);
 
-  displayNumbers(numbers);
+    displayNumbers(numbers);
+  }
 }
 
 // generate the range of numbers to display
@@ -27,22 +42,18 @@ function generateNumbers(start, end) {
 // placing the generate numbers on the page AND bolding the even numbers
 // View function
 function displayNumbers(theNumbers) {
-  
-  let results = '';
-  
+  let results = "";
+
   for (let i = theNumbers[0]; i < theNumbers.length; i++) {
     let currentNumber = theNumbers[i];
 
-    if (currentNumber % 2 == 0)
-    {
-      results = results += `<tr><td class="evenNumber">${currentNumber}</td></tr>`;
-    }
-    else
-    {
+    if (currentNumber % 2 == 0) {
+        results += `<tr><td class="evenNumber">${currentNumber}</td></tr>`;
+    } else {
       results += `<tr><td>${currentNumber}</td></tr>`;
     }
   }
 
-  let tableBody = document.getElementById('results');
+  let tableBody = document.getElementById("results");
   tableBody.innerHTML = results;
 }
