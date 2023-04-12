@@ -35,7 +35,7 @@ function displayNumbers(theNumbers) {
 
     if (currentNumber % 2 == 0)
     {
-      results = results += `<tr><td><strong>${currentNumber}</strong></td></tr>`;
+      results = results += `<tr><td class="evenNumber">${currentNumber}</td></tr>`;
     }
     else
     {
