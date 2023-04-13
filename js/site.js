@@ -45,13 +45,14 @@ function generateNumbers(start, end) {
 function displayNumbers(theNumbers) {
   let results = "";
 
-  for (let i = theNumbers[0]; i < theNumbers.length; i++) {
+  for (let i = 0; i < theNumbers.length; i++) {
     let currentNumber = theNumbers[i];
 
     if (currentNumber % 2 == 0) {
-        results += `<tr><td class="evenNumber">${currentNumber}</td></tr>`;
-    } else {
-      results += `<tr><td>${currentNumber}</td></tr>`;
+        results = results + `<tr><td class="evenNumber">${currentNumber}</td></tr>`;
+    } 
+    else {
+      results = results + `<tr><td>${currentNumber}</td></tr>`;
     }
   }
 
