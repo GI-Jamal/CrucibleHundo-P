@@ -7,14 +7,15 @@ function getValue() {
   let startNumber = parseInt(startValue); // startNumber = 0
   let endNumber = parseInt(endValue);
 
-  if (Number.isInteger(startNumber) || Number.isInteger(endNumber))
+  if (isNaN(startNumber) || isNaN(endNumber))
   {
     Swal.fire(
       {
         icon: 'error',
         title: 'Oops!',
         text: 'Please enter valid numbers for the start and end values',
-        backdrop: 'false'
+        backdrop: 'false',
+        heightAuto: 'false'
       }
     );
   } 
